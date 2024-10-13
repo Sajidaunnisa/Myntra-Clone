@@ -1,0 +1,20 @@
+.move-remove-btn {
+  font-size: 12px;
+  color: #535766;
+  font-weight: 700;
+}
+.add-more-btn {
+  border: 1px solid #d6d6d7;
+  border-radius: 4px;
+  font-weight: 700;
+  padding: 16px 12px 16px 16px;
+}
+.add-more-btn a {
+  text-decoration: none;
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+}
+.add-more-btn :hover {
+  text-decoration: underline;
+  color: rgb(34, 34, 34);
+}

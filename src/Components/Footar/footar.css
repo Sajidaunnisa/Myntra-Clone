@@ -1,0 +1,25 @@
+footer h6 {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+footer ul {
+  padding-left: 0;
+  list-style: none;
+  color: rgb(129, 127, 127);
+  font-size: 15px;
+}
+
+footer ul li {
+  margin-bottom: 7px;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+.apps-icon {
+  color: rgb(103, 102, 102);
+  width: 22px;
+  height: 22px;
+}

@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Assistant";
+  /* max-width: 1150px; */
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+body {
+  margin: 0px !important;
+  padding: 0;
+  font-family: "Assistant";
+  width: 100%;
+}

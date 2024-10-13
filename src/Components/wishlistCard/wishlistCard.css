@@ -1,0 +1,43 @@
+.wishlist-card {
+  max-width: 220px;
+  max-height: 420px;
+  border-radius: 3px;
+  position: relative;
+}
+.wishlist-card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.wishlist-card-img {
+  width: 100%;
+  height: 300px;
+}
+.product-name {
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgb(114, 113, 113);
+}
+.price {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgb(22, 22, 22);
+}
+.actualprice {
+  font-size: 12px;
+  text-decoration: line-through;
+  color: #282c3f;
+}
+.discount {
+  color: #ff905a;
+  font-size: 12px;
+  font-weight: 700;
+}
+.move-to-bag-btn {
+  color: #ff3e6c !important;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  background-color: transparent;
+}
