@@ -15,7 +15,6 @@ const Bag = () => {
   const homeLivingItems = useSelector((state) => state.homeLivingItems);
   const beautyItems = useSelector((state) => state.beautyItems);
 
-  // Filter items that are in the bag
   const finalItems = [
     ...kidsItems,
     ...womenItems,

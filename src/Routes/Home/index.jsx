@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
   const items = useSelector((store) => store.homeItems);
-  console.log(items);
 
   return (
     <>

@@ -17,7 +17,7 @@ const Categories = (props) => {
             <div
               className="card col-12 col-md-6 col-lg-4 catrgory-img-container"
               key={item.id}
-              style={{ width: "16rem" }}
+              style={{ maxWidth: "16rem" }}
             >
               <img
                 src={item.image}

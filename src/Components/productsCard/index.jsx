@@ -7,7 +7,7 @@ import { wishlistActions } from "../../Store/wishlistSlice";
 
 const ProductCard = ({ items = [] }) => {
   const dispatch = useDispatch();
-  const wishlistItems = useSelector((store) => store.wishlist.wishlist);
+  const wishlistItems = useSelector((store) => store.wishlist.wishlist || []);
 
   const isInWishlist = (id) => wishlistItems.includes(id);
 

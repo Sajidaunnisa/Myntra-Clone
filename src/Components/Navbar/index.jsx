@@ -75,7 +75,7 @@ const Navbar = () => {
             role="search"
             style={{ width: "250px", height: "40px" }}
           >
-            <div className="input-group">
+            <div className="input-group search-input">
               <div className="input-group-text search-bar" id="btnGroupAddon">
                 <IoMdSearch className="search-icon" />
               </div>

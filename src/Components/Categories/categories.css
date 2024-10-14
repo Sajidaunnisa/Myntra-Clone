@@ -14,11 +14,11 @@
   border: none;
   padding: 0;
   margin: 0;
-  text-align: center; /* Ensure images are centered */
+  text-align: center;
 }
 
 @media (max-width: 768px) {
   .catrgory-img-container {
-    margin-bottom: 15px; /* Add spacing between cards on small screens */
+    margin-bottom: 15px;
   }
 }
