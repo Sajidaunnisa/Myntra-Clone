@@ -48,7 +48,10 @@
   .hero-img-container {
     max-height: auto;
   }
-
+  .hero-image {
+    margin-left: 0 !important;
+    margin-bottom: 5px;
+  }
   .coupon-container {
     max-height: auto;
   }
@@ -66,5 +69,6 @@
   }
   .sponsor-img {
     margin: 0 !important;
+    height: 45px;
   }
 }

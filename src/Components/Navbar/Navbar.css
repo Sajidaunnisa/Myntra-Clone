@@ -1,4 +1,3 @@
-/* Common styles */
 .navbar {
   background-color: #ffffff;
 }
@@ -93,13 +92,17 @@
   .pagelink {
     width: 100%;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px;
   }
   .pagelink span {
     display: none;
   }
   .pagelink p {
     font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
   }
 
   .navbar-nav .nav-link {

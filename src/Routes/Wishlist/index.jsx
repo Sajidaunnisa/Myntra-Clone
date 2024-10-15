@@ -40,7 +40,7 @@ const Wishlist = () => {
   ];
 
   return (
-    <div className="p-5" id="wishlist">
+    <div className="p-5" id="#wishlist">
       <div className="pt-5 pb-3">
         <span className="wishlist-heading">My Wishlist</span>
         <span className="number-of-items ps-2">

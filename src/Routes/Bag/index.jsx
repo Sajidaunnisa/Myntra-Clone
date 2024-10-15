@@ -27,7 +27,7 @@ const Bag = () => {
     <div>
       <Header />
       <div className="row ps-4 pe-5 border-top">
-        <div className="col-8">
+        <div className="col-12 col-md-8 col-lg-8">
           <div className="d-flex justify-content-between align-items-center mb-2 p-3">
             <div className="form-check">
               <input
@@ -65,14 +65,14 @@ const Bag = () => {
               style={{ width: "22px", height: "22px" }}
               className="me-2"
             />
-            <a href="wishlist">Add More From Wishlist</a>
+            <a href="#wishlist">Add More From Wishlist</a>
             <FaAngleRight
               style={{ width: "16px", height: "16px" }}
               className="ms-auto"
             />
           </div>
         </div>
-        <div className="col-4 border-start">
+        <div className="col-12 col-md-4 col-lg-4 border-start">
           <BagSidebar />
         </div>
       </div>

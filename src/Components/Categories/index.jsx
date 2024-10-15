@@ -15,7 +15,7 @@ const Categories = (props) => {
         <div className="row p-5">
           {props.item.map((item) => (
             <div
-              className="card col-12 col-md-6 col-lg-4 catrgory-img-container"
+              className="card col-3 col-md-4 col-lg-4 catrgory-img-container"
               key={item.id}
               style={{ maxWidth: "16rem" }}
             >
