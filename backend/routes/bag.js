@@ -13,7 +13,6 @@ router.get("/", (req, res) => {
 // Add item to bag
 router.post("/", (req, res) => {
   const { id, image, brand, product, price, actualprice, discount } = req.body;
-  console.log("Received item:", req.body);
   db.query(
     "INSERT INTO bag (id, image, brand, product, price, actualprice, discount) VALUES (?, ?, ?, ?, ?, ?, ?)",
     [id, image, brand, product, price, actualprice, discount],

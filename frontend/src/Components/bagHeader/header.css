@@ -66,7 +66,7 @@ header {
   }
 
   .nav div {
-    display: none; /* Hide the arrows between steps on small screens */
+    display: none;
   }
 
   p {

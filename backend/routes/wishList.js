@@ -29,7 +29,6 @@ router.post("/", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  console.log("Removing item from wishlist, ID:", req.params.id); // Log the ID being removed
   db.query("DELETE FROM wishlist WHERE id = ?", [req.params.id], (err) => {
     if (err) {
       return res.status(500).json({ error: err });

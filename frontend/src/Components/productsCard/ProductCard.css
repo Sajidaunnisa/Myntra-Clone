@@ -66,7 +66,7 @@
   display: block;
   top: -2px;
 }
-<<<<<<< HEAD:frontend/src/Components/productsCard/ProductCard.css
+
 @media (max-width: 992px) {
   .brand {
     font-size: 15px;
@@ -138,7 +138,8 @@
 
   .card {
     width: 100% !important;
-=======
+  }
+}
 @media (max-width: 768px) {
   .product-card {
     --bs-card-spacer-y: 0rem;
@@ -172,6 +173,5 @@
   }
   .details {
     padding: 0px 3px 0px 3px;
->>>>>>> 7d0db32971e551f6ea8c93da03889deae3a0cb81:src/Components/productsCard/ProductCard.css
   }
 }

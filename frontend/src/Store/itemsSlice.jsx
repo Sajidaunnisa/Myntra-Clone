@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Create thunks to fetch each category
 export const fetchHomeItems = createAsyncThunk("items/fetchHome", async () => {
-  const response = await axios.get("http://localhost:5000/api/"); // Replace with your actual backend route
+  const response = await axios.get("http://localhost:5000/api/");
   return response.data;
 });
 
@@ -40,8 +39,15 @@ export const fetchHomeLivingItems = createAsyncThunk(
     return response.data;
   }
 );
+const fetchThunks = {
+  Home: fetchHomeItems,
+  Men: fetchMenItems,
+  Women: fetchWomenItems,
+  Kids: fetchKidsItems,
+  Beauty: fetchBeautyItems,
+  HomeLiving: fetchHomeLivingItems,
+};
 
-// Generic slice generator
 const createItemsSlice = (name) =>
   createSlice({
     name,
@@ -52,15 +58,16 @@ const createItemsSlice = (name) =>
     },
     reducers: {},
     extraReducers: (builder) => {
+      const thunk = fetchThunks[name];
       builder
-        .addCase(eval(`fetch${name}Items`).pending, (state) => {
+        .addCase(thunk.pending, (state) => {
           state.loading = true;
         })
-        .addCase(eval(`fetch${name}Items`).fulfilled, (state, action) => {
+        .addCase(thunk.fulfilled, (state, action) => {
           state.loading = false;
           state.items = action.payload;
         })
-        .addCase(eval(`fetch${name}Items`).rejected, (state, action) => {
+        .addCase(thunk.rejected, (state, action) => {
           state.loading = false;
           state.error = action.error.message;
         });
@@ -82,85 +89,3 @@ export const womenitemsReducer = womenitemsSlice.reducer;
 export const kidsitemsReducer = kidsitemsSlice.reducer;
 export const beautyitemsReducer = beautyitemsSlice.reducer;
 export const homenlivingitemsReducer = homenlivingitemsSlice.reducer;
-
-// import { createSlice } from "@reduxjs/toolkit";
-// import Specialcategories from "../../src/Data/homeData";
-// import WomenProducts from "../Data/womenData";
-// import MenProducts from "../Data/manData";
-// import KidsProducts from "../Data/kidsData";
-// import BeautyProducts from "../Data/beautyData";
-// import HomeandLivingProducts from "../Data/home&livingData";
-
-// const homeitemsSlice = createSlice({
-//   name: "homeItems",
-//   initialState: Specialcategories,
-//   reducers: {
-//     addInitialItem: (store, action) => {
-//       return store;
-//     },
-//   },
-// });
-
-// const menitemsSlice = createSlice({
-//   name: "menItems",
-//   initialState: MenProducts,
-//   reducers: {
-//     addInitialItem: (store, action) => {
-//       return store;
-//     },
-//   },
-// });
-
-// const womenitemsSlice = createSlice({
-//   name: "womenItems",
-//   initialState: WomenProducts,
-//   reducers: {
-//     addInitialItem: (store, action) => {
-//       return store;
-//     },
-//   },
-// });
-
-// const kidsitemsSlice = createSlice({
-//   name: "kidsItems",
-//   initialState: KidsProducts,
-//   reducers: {
-//     addInitialItem: (store, action) => {
-//       return store;
-//     },
-//   },
-// });
-
-// const beautyitemsSlice = createSlice({
-//   name: "beautyItems",
-//   initialState: BeautyProducts,
-//   reducers: {
-//     addInitialItem: (store, action) => {
-//       return store;
-//     },
-//   },
-// });
-
-// const homenlivingitemsSlice = createSlice({
-//   name: "homeLivingItems",
-//   initialState: HomeandLivingProducts,
-//   reducers: {
-//     addInitialItem: (store, action) => {
-//       return store;
-//     },
-//   },
-// });
-
-// export const homeitemsActions = homeitemsSlice.actions;
-// export const menitemsActions = menitemsSlice.actions;
-// export const womenitemsActions = womenitemsSlice.actions;
-// export const kidsitemsActions = kidsitemsSlice.actions;
-// export const beautyitemsActions = beautyitemsSlice.actions;
-// export const homenlivingitemsActions = homenlivingitemsSlice.actions;
-
-// export const homeitemsReducer = homeitemsSlice.reducer;
-// export const menitemsReducer = menitemsSlice.reducer;
-// export const womenitemsReducer = womenitemsSlice.reducer;
-// export const kidsitemsReducer = kidsitemsSlice.reducer;
-// export const beautyitemsReducer = beautyitemsSlice.reducer;
-// export const homenlivingitemsReducer = homenlivingitemsSlice.reducer;
