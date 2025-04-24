@@ -13,6 +13,7 @@ const Categories = (props) => {
 
       <div className="card-group">
         <div className="row p-5">
+<<<<<<< HEAD:frontend/src/Components/Categories/index.jsx
           {Array.isArray(props.item) &&
             props.item.map((item) => (
               <div
@@ -27,6 +28,21 @@ const Categories = (props) => {
                 />
               </div>
             ))}
+=======
+          {props.item.map((item) => (
+            <div
+              className="card col-3 col-md-4 col-lg-4 catrgory-img-container"
+              key={item.id}
+              style={{ maxWidth: "16rem" }}
+            >
+              <img
+                src={item.image}
+                className="card-img-top categories-img"
+                alt={`category-${item.id}`}
+              />
+            </div>
+          ))}
+>>>>>>> 7d0db32971e551f6ea8c93da03889deae3a0cb81:src/Components/Categories/index.jsx
         </div>
       </div>
     </div>
