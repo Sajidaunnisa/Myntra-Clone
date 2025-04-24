@@ -7,7 +7,7 @@ import "./Navbar.css";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const bag = useSelector((store) => store.bag);
+  const bagItems = useSelector((store) => store.bag.items);
 
   return (
     <nav className="navbar navbar-expand-lg shadow-sm ps-2 fixed-top">
@@ -134,7 +134,7 @@ const Navbar = () => {
               <p className="mb-0 text-center d-block position-relative">
                 <HiOutlineShoppingBag className="nav-icon" />
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ">
-                  {bag.length}
+                  {bagItems.length}
                 </span>
               </p>
               <p className="nav-side-link">Bag</p>

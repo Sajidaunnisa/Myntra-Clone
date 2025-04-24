@@ -20,19 +20,14 @@ const BagCard = ({ item }) => {
 
   return (
     <div className="p-5 pb-0 item-container">
-<<<<<<< HEAD:frontend/src/Components/bagCard/index.jsx
-      <Card className="mb-3 bagcard" style={{ maxWidth: "600px" }}>
-        <button
-          className="delete-button"
-          onClick={() => handleRemoveItem(item.id)}
-        >
-=======
       <Card
         className="mb-3 bagcard"
         style={{ maxWidth: "600px", width: "100%", height: "auto" }}
       >
-        <button className="delete-button" onClick={handleRemoveItem}>
->>>>>>> 7d0db32971e551f6ea8c93da03889deae3a0cb81:src/Components/bagCard/index.jsx
+        <button
+          className="delete-button"
+          onClick={() => handleRemoveItem(item.id)}
+        >
           <IoMdClose />
         </button>
 
