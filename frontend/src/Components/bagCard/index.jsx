@@ -4,28 +4,39 @@ import { Card } from "react-bootstrap";
 import { PiKeyReturn } from "react-icons/pi";
 import { IoMdClose } from "react-icons/io";
 import { FaCaretDown } from "react-icons/fa";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { bagActions } from "../../Store/bagSlice";
+import { fetchBagItems, removeFromBag } from "../../Store/bagSlice";
 
 const BagCard = ({ item }) => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchBagItems());
+  }, [dispatch]);
 
-  const handleRemoveItem = () => {
-    dispatch(bagActions.removeFromBag(item.id));
+  const handleRemoveItem = (id) => {
+    dispatch(removeFromBag(id));
   };
 
   return (
     <div className="p-5 pb-0 item-container">
       <Card className="mb-3 bagcard" style={{ maxWidth: "600px" }}>
-        <button className="delete-button" onClick={handleRemoveItem}>
+        <button
+          className="delete-button"
+          onClick={() => handleRemoveItem(item.id)}
+        >
           <IoMdClose />
         </button>
 
-        <div className="row no-gutters">
-          <div className="col-md-3">
-            <Card.Img src={item.image} alt={item.product} />
+        <div className="row g-0">
+          <div className="col-12 col-md-3">
+            <Card.Img
+              className="img-fluid"
+              src={item.image}
+              alt={item.product}
+            />
           </div>
-          <div className="col-md-9">
+          <div className="col-12 col-md-9">
             <Card.Body>
               <Card.Title className="title">{item.brand}</Card.Title>
               <Card.Text className="item-details">{item.product}</Card.Text>

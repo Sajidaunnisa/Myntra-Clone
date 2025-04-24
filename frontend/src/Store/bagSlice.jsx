@@ -1,18 +1,68 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const fetchBagItems = createAsyncThunk("bag/fetchBagItems", async () => {
+  const response = await axios.get("http://localhost:5000/api/bag");
+  return response.data;
+});
+
+export const addToBag = createAsyncThunk("bag/addToBag", async (item) => {
+  console.log("Adding to bag:", item);
+  await axios.post("http://localhost:5000/api/bag", item);
+  return item;
+});
+
+export const removeFromBag = createAsyncThunk(
+  "bag/removeFromBag",
+  async (id) => {
+    await axios.delete(`http://localhost:5000/api/bag/${id}`);
+    return id;
+  }
+);
 
 const bagSlice = createSlice({
   name: "bag",
-  initialState: [],
+  initialState: {
+    items: [],
+    status: "idle",
+  },
   reducers: {
-    addToBag: (state, action) => {
-      state.push(action.payload);
+    clearBag: (state) => {
+      state.items = [];
     },
-    removeFromBag: (state, action) => {
-      return state.filter((itemId) => itemId !== action.payload);
-    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchBagItems.fulfilled, (state, action) => {
+        state.items = action.payload;
+      })
+      .addCase(addToBag.fulfilled, (state, action) => {
+        state.items.push(action.payload);
+      })
+      .addCase(removeFromBag.fulfilled, (state, action) => {
+        state.items = state.items.filter((item) => item.id !== action.payload);
+      });
   },
 });
 
+export const bagReducer = bagSlice.reducer;
 export const bagActions = bagSlice.actions;
 
-export const bagReducer = bagSlice.reducer;
+// import { createSlice } from "@reduxjs/toolkit";
+
+// const bagSlice = createSlice({
+//   name: "bag",
+//   initialState: [],
+//   reducers: {
+//     addToBag: (state, action) => {
+//       state.push(action.payload);
+//     },
+//     removeFromBag: (state, action) => {
+//       return state.filter((itemId) => itemId !== action.payload);
+//     },
+//   },
+// });
+
+// export const bagActions = bagSlice.actions;
+
+// export const bagReducer = bagSlice.reducer;

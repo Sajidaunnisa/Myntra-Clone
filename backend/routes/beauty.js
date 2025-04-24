@@ -1,13 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../db"); // assuming you already set up db connection
+const db = require("../db");
 
 router.get("/", (req, res) => {
-  db.query("SELECT * FROM beauty_products", (err, results) => {
-    if (err) {
-      console.error("Error fetching beauty products:", err);
-      return res.status(500).json({ error: "Server error" });
-    }
+  db.query("SELECT * FROM beauty", (err, results) => {
+    if (err) return res.status(500).json({ error: err });
     res.json(results);
   });
 });

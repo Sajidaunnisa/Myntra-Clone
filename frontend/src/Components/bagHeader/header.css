@@ -1,3 +1,75 @@
 .bag-tabs {
   font-size: 13px;
+  font-weight: 600;
+  padding: 0 6px;
+}
+
+header {
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .bag-tabs {
+    font-size: 12px;
+    padding: 0 4px;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav li,
+  .nav div {
+    padding: 0;
+  }
+
+  .nav-link {
+    text-align: center;
+  }
+
+  .link-success,
+  .link-secondary {
+    font-size: 12px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .col-md-3,
+  .col-12 {
+    text-align: center !important;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  img[alt="myntra-logo"] {
+    width: 45px !important;
+    height: 32px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .link-success,
+  .link-secondary {
+    font-size: 11px;
+  }
+
+  .nav {
+    gap: 4px;
+  }
+
+  .nav div {
+    display: none; /* Hide the arrows between steps on small screens */
+  }
+
+  p {
+    font-size: 12px;
+  }
 }

@@ -1,17 +1,22 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const productRoutes = require("./routes/products");
-const beautyRoutes = require("./routes/beauty");
-
-app.use("/api/beauty", beautyRoutes);
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use("/api", productRoutes);
+// Routes
+app.use("/api/", require("./routes/home"));
+app.use("/api/men", require("./routes/men"));
+app.use("/api/women", require("./routes/women"));
+app.use("/api/kids", require("./routes/kids"));
+app.use("/api/beauty", require("./routes/beauty"));
+app.use("/api/home-living", require("./routes/homeLiving"));
+app.use("/api/wishlist", require("./routes/wishlist"));
+app.use("/api/bag", require("./routes/bag"));
 
-app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

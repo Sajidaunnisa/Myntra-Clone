@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductCard from "../../Components/productsCard";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchMenItems } from "../../Store/itemsSlice";
 
 const Man = () => {
-  const items = useSelector((store) => store.menItems);
+  const dispatch = useDispatch();
+  const items = useSelector((store) => store.menItems.items);
+
+  useEffect(() => {
+    dispatch(fetchMenItems());
+  }, [dispatch]);
+
   return (
     <>
       <ProductCard items={items} />

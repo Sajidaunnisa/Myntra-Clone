@@ -5,23 +5,36 @@ import BagSidebar from "../../Components/bagSidebar";
 import { CiBookmark } from "react-icons/ci";
 import { FaAngleRight } from "react-icons/fa6";
 import { useSelector } from "react-redux";
+
 import "./bag.css";
 
 const Bag = () => {
-  const bagItems = useSelector((state) => state.bag);
+  const bagItems = useSelector((state) => state.bag.items);
   const womenItems = useSelector((state) => state.womenItems);
   const menItems = useSelector((state) => state.menItems);
   const kidsItems = useSelector((state) => state.kidsItems);
   const homeLivingItems = useSelector((state) => state.homeLivingItems);
   const beautyItems = useSelector((state) => state.beautyItems);
 
-  const finalItems = [
-    ...kidsItems,
-    ...womenItems,
-    ...menItems,
-    ...homeLivingItems,
-    ...beautyItems,
-  ].filter((item) => bagItems.includes(item.id));
+  const validKidsItems = Array.isArray(kidsItems) ? kidsItems : [];
+  const validWomenItems = Array.isArray(womenItems) ? womenItems : [];
+  const validMenItems = Array.isArray(menItems) ? menItems : [];
+  const validHomeLivingItems = Array.isArray(homeLivingItems)
+    ? homeLivingItems
+    : [];
+  const validBeautyItems = Array.isArray(beautyItems) ? beautyItems : [];
+
+  const allItems = [
+    ...validKidsItems,
+    ...validWomenItems,
+    ...validMenItems,
+    ...validHomeLivingItems,
+    ...validBeautyItems,
+  ];
+
+  const finalItems = bagItems.map(
+    (bagItem) => allItems.find((item) => item.id === bagItem.id) || bagItem
+  );
 
   return (
     <div>
@@ -55,11 +68,12 @@ const Bag = () => {
               </div>
             </div>
           </div>
-          {finalItems.length > 0 ? (
-            finalItems.map((item) => <BagCard key={item.id} item={item} />)
+          {bagItems.length > 0 ? (
+            bagItems.map((item) => <BagCard key={item.id} item={item} />)
           ) : (
             <div className="text-center p-5">Your bag is empty.</div>
           )}
+
           <div className="add-more-btn d-flex m-5">
             <CiBookmark
               style={{ width: "22px", height: "22px" }}

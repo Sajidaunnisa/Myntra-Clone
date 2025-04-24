@@ -63,3 +63,76 @@
   display: block;
   top: -2px;
 }
+@media (max-width: 992px) {
+  .brand {
+    font-size: 15px;
+  }
+
+  .wishlist-btn-container,
+  .remove-wishlist-btn {
+    font-size: 13px;
+    padding: 4px;
+  }
+
+  .actualprice,
+  .total-price,
+  .total-discount {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand {
+    font-size: 14px;
+  }
+
+  .wishlist-btn-container,
+  .remove-wishlist-btn {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  .actualprice,
+  .total-price,
+  .total-discount {
+    font-size: 12px;
+  }
+
+  .product-card-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .wishlist-btn-container,
+  .remove-wishlist-btn {
+    position: static;
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .product-title:hover .wishlist-btn-container,
+  .product-title:hover .remove-wishlist-btn {
+    display: block;
+  }
+
+  .brand {
+    font-size: 13px;
+  }
+
+  .product-title {
+    padding: 0;
+  }
+
+  .product-card-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .card {
+    width: 100% !important;
+  }
+}

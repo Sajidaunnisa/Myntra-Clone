@@ -4,38 +4,27 @@ import { ListGroup } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const BagSidebar = () => {
-  const bagItems = useSelector((state) => state.bag);
-  const categories = useSelector((state) => ({
-    womenItems: state.womenItems,
-    menItems: state.menItems,
-    kidsItems: state.kidsItems,
-    homeLivingItems: state.homeLivingItems,
-    beautyItems: state.beautyItems,
-  }));
+  const bagItems = useSelector((state) => state.bag.items);
 
   let totalMRP = 0;
   let totalDiscount = 0;
-  let shoppingFee = 79;
+  let shippingFee = 79;
 
-  const finalItems = Object.values(categories)
-    .flat()
-    .filter((item) => {
-      if (bagItems.includes(item.id)) {
-        totalMRP += Number(item.actualprice) || 0;
-        totalDiscount += Number(item.actualprice - item.price) || 0;
+  bagItems.forEach((item) => {
+    const actual = Number(item.actualprice) || 0;
+    const price = Number(item.price) || 0;
 
-        return true;
-      }
-      return false;
-    });
+    totalMRP += actual;
+    totalDiscount += actual - price;
+  });
 
-  let totalItem = bagItems.length;
-  let finalPayment = Number(totalMRP) - Number(totalDiscount) + shoppingFee;
+  const totalItems = bagItems.length;
+  const finalPayment = totalMRP - totalDiscount + shippingFee;
 
   return (
     <div className="shopping-bag">
       <div className="price-details ps-3">
-        PRICE DETAILS ({totalItem} Items)
+        PRICE DETAILS ({totalItems} Item{totalItems !== 1 ? "s" : ""})
       </div>
 
       <ListGroup variant="flush" className="details">
@@ -70,7 +59,7 @@ const BagSidebar = () => {
             <span>
               Shipping Fee <span className="knowmore-btn ps-1">Know More</span>
             </span>
-            <span>₹{shoppingFee}</span>
+            <span>₹{shippingFee}</span>
           </div>
         </ListGroup.Item>
       </ListGroup>

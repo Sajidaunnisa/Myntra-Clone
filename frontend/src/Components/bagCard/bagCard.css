@@ -1,20 +1,31 @@
 .item-container {
   max-width: 700px;
+  margin: auto;
 }
+
+.bagcard {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+}
+
 .title {
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
 }
+
 .item-details {
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .seller {
-  font-family: 12px;
+  font-size: 12px;
   color: rgb(192, 188, 188);
 }
+
 .size-qty-btn {
   font-size: 14px;
   background: #f5f5f6;
@@ -25,16 +36,24 @@
   border-radius: 2px;
   padding: 2px 8px;
 }
+
 .total-price {
   font-size: 14px;
   font-weight: 700;
 }
+
 .total-discount {
   font-size: 14px;
 }
+
 .return-details {
   font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
 }
+
 .delete-button {
   position: absolute;
   z-index: 3;
@@ -43,8 +62,53 @@
   padding: 2px;
   right: 10px;
   top: 10px;
+  font-size: 18px;
+  color: #333;
 }
-.bagcard {
-  position: relative;
-  z-index: 0;
+
+.card-img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .item-details,
+  .title {
+    font-size: 13px;
+  }
+
+  .total-price,
+  .total-discount {
+    font-size: 13px;
+  }
+
+  .size-qty-btn {
+    font-size: 13px;
+    margin-right: 8px;
+  }
+
+  .return-details {
+    font-size: 11px;
+    margin-top: 6px;
+  }
+
+  .bagcard {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .item-details {
+    white-space: normal;
+  }
+
+  .item-container {
+    padding: 16px;
+  }
+
+  .card-img {
+    height: auto;
+  }
 }

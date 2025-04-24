@@ -3,29 +3,30 @@ import "./ProductCard.css";
 import { Card } from "react-bootstrap";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { wishlistActions } from "../../Store/wishlistSlice";
+import { addToWishlist, removeFromWishlist } from "../../Store/wishlistSlice";
 
 const ProductCard = ({ items = [] }) => {
+  const itemsArray = Array.isArray(items) ? items : [];
   const dispatch = useDispatch();
-  const wishlistItems = useSelector((store) => store.wishlist.wishlist || []);
+  const wishlistItems = useSelector((store) => store.wishlist.items || []);
 
-  const isInWishlist = (id) => wishlistItems.includes(id);
+  const isInWishlist = (id) => wishlistItems.some((item) => item.id === id);
 
-  const handleAddToWishlist = (id) => {
-    dispatch(wishlistActions.addToWishlist(id));
+  const handleAddToWishlist = (item) => {
+    dispatch(addToWishlist(item));
   };
 
   const handleRemoveFromWishlist = (id) => {
-    dispatch(wishlistActions.removeFromWishlist(id));
+    dispatch(removeFromWishlist(id));
   };
 
   return (
     <div className="card-group mt-5 pt-5">
       <div className="product-card-container row ms-3 me-2">
-        {items.map((item) => {
+        {itemsArray.map((item) => {
           const inWishlist = isInWishlist(item.id);
           return (
-            <div className="col" key={item.id}>
+            <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={item.id}>
               <Card style={{ width: "16rem" }} className="mb-3">
                 <Card.Img variant="top" src={item.image} alt={item.product} />
                 <Card.Body>
@@ -55,7 +56,7 @@ const ProductCard = ({ items = [] }) => {
                     ) : (
                       <button
                         className="wishlist-btn-container"
-                        onClick={() => handleAddToWishlist(item.id)}
+                        onClick={() => handleAddToWishlist(item)}
                       >
                         <IoMdHeartEmpty
                           style={{ width: "20px", height: "20px" }}

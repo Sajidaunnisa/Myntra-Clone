@@ -13,19 +13,20 @@ const Categories = (props) => {
 
       <div className="card-group">
         <div className="row p-5">
-          {props.item.map((item) => (
-            <div
-              className="card col-12 col-md-6 col-lg-4 catrgory-img-container"
-              key={item.id}
-              style={{ maxWidth: "16rem" }}
-            >
-              <img
-                src={item.image}
-                className="card-img-top categories-img"
-                alt={`category-${item.id}`}
-              />
-            </div>
-          ))}
+          {Array.isArray(props.item) &&
+            props.item.map((item) => (
+              <div
+                className="card col-12 col-md-6 col-lg-4 catrgory-img-container"
+                key={item.id}
+                style={{ maxWidth: "16rem" }}
+              >
+                <img
+                  src={item.image}
+                  className="card-img-top categories-img"
+                  alt={`category-${item.id}`}
+                />
+              </div>
+            ))}
         </div>
       </div>
     </div>
