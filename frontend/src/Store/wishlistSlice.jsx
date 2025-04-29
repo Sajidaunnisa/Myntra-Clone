@@ -4,7 +4,9 @@ import axios from "axios";
 export const fetchWishlistItems = createAsyncThunk(
   "wishlist/fetchWishlistItems",
   async () => {
-    const response = await axios.get("http://localhost:5000/api/wishlist");
+    const response = await axios.get(
+      "https://myntra-backend-1v84.onrender.com/api/wishlist"
+    );
     return response.data;
   }
 );
@@ -12,7 +14,10 @@ export const fetchWishlistItems = createAsyncThunk(
 export const addToWishlist = createAsyncThunk(
   "wishlist/addToWishlist",
   async (item) => {
-    await axios.post("http://localhost:5000/api/wishlist", item);
+    await axios.post(
+      "https://myntra-backend-1v84.onrender.com/api/wishlist",
+      item
+    );
     return item;
   }
 );
@@ -20,7 +25,9 @@ export const addToWishlist = createAsyncThunk(
 export const removeFromWishlist = createAsyncThunk(
   "wishlist/removeFromWishlist",
   async (id) => {
-    await axios.delete(`http://localhost:5000/api/wishlist/${id}`);
+    await axios.delete(
+      `https://myntra-backend-1v84.onrender.com/api/wishlist/${id}`
+    );
     return id;
   }
 );

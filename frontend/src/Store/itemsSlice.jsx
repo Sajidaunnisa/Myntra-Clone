@@ -2,32 +2,42 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchHomeItems = createAsyncThunk("items/fetchHome", async () => {
-  const response = await axios.get("http://localhost:5000/api/");
+  const response = await axios.get(
+    "https://myntra-backend-1v84.onrender.com/api/"
+  );
   return response.data;
 });
 
 export const fetchMenItems = createAsyncThunk("items/fetchMen", async () => {
-  const response = await axios.get("http://localhost:5000/api/men");
+  const response = await axios.get(
+    "https://myntra-backend-1v84.onrender.com/api/men"
+  );
   return response.data;
 });
 
 export const fetchWomenItems = createAsyncThunk(
   "items/fetchWomen",
   async () => {
-    const response = await axios.get("http://localhost:5000/api/women");
+    const response = await axios.get(
+      "https://myntra-backend-1v84.onrender.com/api/women"
+    );
     return response.data;
   }
 );
 
 export const fetchKidsItems = createAsyncThunk("items/fetchKids", async () => {
-  const response = await axios.get("http://localhost:5000/api/kids");
+  const response = await axios.get(
+    "https://myntra-backend-1v84.onrender.com/api/kids"
+  );
   return response.data;
 });
 
 export const fetchBeautyItems = createAsyncThunk(
   "items/fetchBeauty",
   async () => {
-    const response = await axios.get("http://localhost:5000/api/beauty");
+    const response = await axios.get(
+      "https://myntra-backend-1v84.onrender.com/api/beauty"
+    );
     return response.data;
   }
 );
@@ -35,7 +45,9 @@ export const fetchBeautyItems = createAsyncThunk(
 export const fetchHomeLivingItems = createAsyncThunk(
   "items/fetchHomeLiving",
   async () => {
-    const response = await axios.get("http://localhost:5000/api/home-living");
+    const response = await axios.get(
+      "https://myntra-backend-1v84.onrender.com/api/home-living"
+    );
     return response.data;
   }
 );

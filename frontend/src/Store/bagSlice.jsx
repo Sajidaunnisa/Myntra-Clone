@@ -2,20 +2,24 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchBagItems = createAsyncThunk("bag/fetchBagItems", async () => {
-  const response = await axios.get("http://localhost:5000/api/bag");
+  const response = await axios.get(
+    "https://myntra-backend-1v84.onrender.com/api/bag"
+  );
   return response.data;
 });
 
 export const addToBag = createAsyncThunk("bag/addToBag", async (item) => {
   console.log("Adding to bag:", item);
-  await axios.post("http://localhost:5000/api/bag", item);
+  await axios.post("https://myntra-backend-1v84.onrender.com/api/bag", item);
   return item;
 });
 
 export const removeFromBag = createAsyncThunk(
   "bag/removeFromBag",
   async (id) => {
-    await axios.delete(`http://localhost:5000/api/bag/${id}`);
+    await axios.delete(
+      `https://myntra-backend-1v84.onrender.com/api/bag/${id}`
+    );
     return id;
   }
 );
